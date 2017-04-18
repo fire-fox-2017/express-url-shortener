@@ -45,4 +45,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+// Helper function
+app.locals.helper = require("./helpers/app");
+
 module.exports = app;
