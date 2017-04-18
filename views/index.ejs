@@ -8,9 +8,32 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
 
-    <a href="/urls/new">Create new URL</a>
+    <form action="/create" method="post">
+      <input type="text" name="link">
+      <input type="submit" value="PenDeKin Tjui!">
+    </form>
+
     <br><br>
-    <a href="/urls"> Url List </a>
+
+
+    <br><br>
+
+    <table class="table">
+      <%
+        urls.forEach( u => {
+      %>
+        <tr>
+          <td> <%= u.link %> </td>
+          <td> <a href="/<%= u.short_link %>"><%= u.short_link %></a> </td>
+          <td> <%= u.click_count %> </td>
+        </tr>
+      <%
+        })
+      %>
+
+    </table>
+
+
 
   </body>
 </html>
