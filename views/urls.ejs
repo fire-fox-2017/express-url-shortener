@@ -1,0 +1,35 @@
+<html>
+<head>
+<title><%= title %></title>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+
+</head>
+
+<body>
+  <h1><%= title %></h1>
+
+  <a href="/urls/new">New Url</a>
+  <br><br>
+  <a href="/urls"> Url </a>
+  <br><br>
+  <a href="/"> Back </a>
+  <br><br>
+
+  <table class="table">
+    <%
+      urls.forEach( u => {
+    %>
+      <tr>
+        <td> <%= u.link %> </td>
+        <td> <a href="/urls/<%= u.short_link %>"><%= u.short_link %></a> </td>
+        <td> <%= u.click_count %> </td>
+      </tr>
+    <%
+      })
+    %>
+
+  </table>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <form action="/create" method="post">
+      <input type="text" name="link">
+      <input type="submit" value="PenDeKin Tjui!">
+    </form>
+
+    <br><br>
+
+
+    <br><br>
+
+    <table class="table">
+      <%
+        urls.forEach( u => {
+      %>
+        <tr>
+          <td> <%= u.link %> </td>
+          <td> <a href="/<%= u.short_link %>"><%= u.short_link %></a> </td>
+          <td> <%= u.click_count %> </td>
+        </tr>
+      <%
+        })
+      %>
+
+    </table>
+
+
+
+  </body>
+</html>
