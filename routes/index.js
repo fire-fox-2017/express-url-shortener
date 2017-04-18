@@ -16,21 +16,21 @@ router.post('/create', (req, res, next) => {
   var link = req.body.link;
 
   // shorten the link.
-  var short_link = helper.randomString(link);
-  console.log(`short_link='${short_link}'`);
+  // var short_link = helper.randomString();
+  // console.log(`short_link='${short_link}'`);
 
-  db.Url.create({link: link, short_link: short_link, click_count: 0})
+  // db.Url.create({link: link, click_count: 0})
+  // .then ( url => {
+  //   console.log(`'${url.link}' - '${url.short_link}' has been created`);
+  //   res.redirect('/')
+  // })
+
+  db.Url.findOrCreate({where: {link:link}})
   .then ( url => {
-    console.log(`'${url.link}' - '${url.short_link}' has been created`);
+    console.log(`find or create ${url}`)
     res.redirect('/')
-    //
-    // db.Url.findAll()
-    // .then ( urls => {
-    //   res.render('urls', { title: 'PDKT', urls: urls, new: url });
-    // })
-
-
   })
+
 })
 
 

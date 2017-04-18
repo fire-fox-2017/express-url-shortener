@@ -1,7 +1,7 @@
 
 module.exports = {
-	randomString: function(str) {
-    console.log(`randomString ${str}`);
+	randomString: function() {
+    console.log(`randomString`);
 
     var random_str = "";
     var random_str_length = 5;
