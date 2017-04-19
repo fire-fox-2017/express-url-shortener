@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <form action="/" method="post">
+      <input name="ori_url" type="text"></input>
+      <input type="submit" value="Shorten URL!"></input>
+    </form>
+    <br/>
+    <!-- <% let newUrl = ""; %>
+    <% if (shortUrl !== null && oriUrl !== null) { %>
+      <% newUrl = shortUrl; %> -->
+    <table>
+      <tr>
+        <th>Original URL</th>
+        <th>Shortened URL</th>
+      </tr>
+        <tr>
+          <td><%= oriUrl %></td>
+          <td><%= newUrl %></td>
+        </tr>
+    </table>
+    <!-- <% } %> -->
+
+    <br/>
+    <h3>Short Urls List</h3>
+    <table>
+      <tr>
+        <th>Original URL</th>
+        <th>Short URL</th>
+        <th>Counter</th>
+      </tr>
+      <% allUrl.forEach((url) => { %>
+        <tr>
+          <td><%= url.ori_url %></td>
+          <td><%= url.short_url %></td>
+          <td><%= url.click_count %></td>
+        </tr>
+      <% }); %>
+    </table>
+  </body>
+</html>
