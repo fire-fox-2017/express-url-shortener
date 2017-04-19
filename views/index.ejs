@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shortener</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>Original Link</td>
+        <td>Short Link</td>
+        <td>Count</td>
+      </tr>
+      <% shorteners.forEach((Shortener)=>{ %>
+        <tr>
+          <td><%= Shortener.originalLink %></td>
+          <td><a href="/shorter/destination/<%=Shortener.id %>"><%= Shortener.shortLink %></a></td>
+          <td><%= Shortener.count %></td>
+        </tr>
+      <% }) %>
+    </table>
+
+    <a href="/shorter/add"><input type="button" value="ADD LINK"></a>
+  </body>
+</html>
