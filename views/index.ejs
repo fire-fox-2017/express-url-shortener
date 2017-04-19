@@ -1,0 +1,93 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>URL Shortener</title>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="main-container">
+          <div class="inner cover">
+            <span class="glyphicon glyphicon-link"></span>
+            <h1>URL Shortener</h1>
+            <h4>ridho.io</h4>
+
+            <div class="row">
+
+              <div class="col-lg-12">
+                <div class="input-group input-group-lg">
+                  <input id="url-field" type="text" class="form-control" placeholder="Paste a link...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-shorten" type="button">SHORTEN</button>
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-lg-12">
+                <div id="link"></div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="javascripts/shorten.js"></script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Save your favorite site here</p>
+      <div class="">
+        <form class="" action="/create" method="post">
+          <input type="text" name="url" value="" placeholder="Paste a link...">
+          <button type="submit" name="button">Add Url</button>
+        </form>
+      </div>
+      <br>
+      <div class="">
+        <table class="striped">
+          <thead>
+            <th>No</th>
+            <th>Original Url</th>
+            <th>Url</th>
+            <th>Counter</th>
+          </thead>
+          <tbody>
+            <%let no = 1%>
+            <%url.forEach((data)=>{%>
+            <tr>
+              <th><%= no %></th>
+              <th><%= data.url_list.slice(0,30) %></th>
+              <th><a href="/<%=data.id%>" name="short"><%= data.short_url %></a></th>
+              <th><%= data.click_count %></th>
+            </tr>
+            <%no++ })%>
+          </tbody>
+        </table>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  </body>
+</html>
