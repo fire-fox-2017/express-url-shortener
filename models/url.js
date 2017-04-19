@@ -13,10 +13,11 @@ module.exports = function(sequelize, DataTypes) {
     hooks: {
       beforeCreate: function(user, options) {
         let string = '';
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         for(let i = 0; i < 5; i++) {
-          string += String.fromCharCode(Math.floor((Math.random() * (122 - 65 + 1)) + 65));
+          string += possible.charAt(Math.floor(Math.random() * possible.length));
         }
-        user.short_url = `null://${string}`;
+        user.short_url = `url.s/${string}`;
       }
     }
   });

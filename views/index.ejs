@@ -7,5 +7,33 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    
+    <form action="/urls" method="POST">
+      <label for="url">Insert your long URL:</label>
+      <input type="text" name="url">
+      <button type="submit">Submit</button>
+    </form>
+    
+    <div>
+      <table>
+        <thead>
+          <th>No</th>
+          <th>Url</th>
+          <th>Counter</th>
+        </thead>
+        <tbody>
+          <% let no = 1 %>
+          <% urls.forEach((url) => { %>
+            <tr>
+              <th><%= no %></th>
+              <th><a target="_blank" href="<%= url.id %>"><%= url.short_url %></a></th>
+              <th><%= url.counter %></th>
+            </tr>
+          <% no++ }) %>
+        </tbody>
+      </table>
+    </div>
+
   </body>
 </html>
