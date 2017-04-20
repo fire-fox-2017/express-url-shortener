@@ -116,7 +116,7 @@ router.get('/:shortUrl', function(req, res) {
           res.send(err);
         });
     }).catch((err) => {
-      res.send(er);
+      res.send(err);
     });
 });
 
